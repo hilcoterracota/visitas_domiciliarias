@@ -1,6 +1,7 @@
 using Sivido.Model.Beakers;
 using Sivido.Model.Core;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sivido.Model.Catalog
@@ -8,7 +9,9 @@ namespace Sivido.Model.Catalog
     [Table("CAT_FORMULARIO")]
     public class Formulario : Default
     {
+        [Required]
         public string IdTipoFormulario { get; set; }
+        [Required]
         public string Pregunta { get; set; }
         public virtual TipoFormulario tipoFormulario { get; set; }
         public virtual ICollection<VisitaRespuesta> VisitaRespuestas { get; set; }

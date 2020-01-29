@@ -1,8 +1,9 @@
+using Sivido.Model.Catalog;
 using Sivido.Model.Core;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Sivido.Model.Catalog
+namespace Sivido.Model.Beakers
 {
     [Table("BRE_TIPO_VISITA_FORMULARIO")]
     public class TipoVisitaFormulario : DefaultBreak
