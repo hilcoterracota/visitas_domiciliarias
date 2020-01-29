@@ -14,7 +14,9 @@ namespace Sivido.Model.Beakers
         [Key]
         public string IdFormulario { get; set; }
         [Required]
+        [MaxLength(500)]
         public string Respuesta { get; set; }
+        [MaxLength(200)]
         public string Observaciones { get; set; }
 
         public virtual Visita Visita { get; set; }

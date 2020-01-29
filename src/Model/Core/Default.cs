@@ -7,6 +7,7 @@ namespace Sivido.Model.Core
     {
         [Key]
         [Required]
+        [MaxLength(50)]
         public string Id { get; set; } = Guid.NewGuid().ToString();
         [Required]
         public DateTime RegistrationDate { get; set; } = DateTime.Now;

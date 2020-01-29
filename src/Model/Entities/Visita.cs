@@ -29,5 +29,6 @@ namespace Sivido.Model.Entities
         public virtual Direccion Direccion { get; set; }
         public virtual Inspector Inspector { get; set; }
         public virtual ICollection<VisitaRespuesta> VisitaRespuestas { get; set; }
+        public virtual ICollection<Fotografia> Fotografias { get; set; }
     }
 }

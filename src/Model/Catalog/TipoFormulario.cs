@@ -9,7 +9,9 @@ namespace Sivido.Model.Catalog
     public class TipoFormulario : Default
     {
         [Required]
+        [MaxLength(10)]
         public string Value { get; set; }
+        [MaxLength(200)]
         public string Descripcion { get; set; }
         public virtual ICollection<Formulario> Formularios { get; set; }
     }

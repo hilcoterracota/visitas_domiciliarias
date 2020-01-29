@@ -12,6 +12,7 @@ namespace Sivido.Model.Catalog
         [Required]
         public string IdTipoFormulario { get; set; }
         [Required]
+        [MaxLength(200)]
         public string Pregunta { get; set; }
         public virtual TipoFormulario tipoFormulario { get; set; }
         public virtual ICollection<VisitaRespuesta> VisitaRespuestas { get; set; }

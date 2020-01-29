@@ -9,6 +9,7 @@ namespace Sivido.Model.Entities
     public class Portafolio : Default
     {
         [Required]
+        [MaxLength(100)]
         public string RasonSocial { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
     }

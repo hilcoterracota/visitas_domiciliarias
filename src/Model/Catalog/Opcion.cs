@@ -1,3 +1,4 @@
+using System;
 using Sivido.Model.Beakers;
 using Sivido.Model.Core;
 using System.Collections.Generic;
@@ -10,7 +11,11 @@ namespace Sivido.Model.Catalog
     public class Opcion : Default
     {
         [Required]
+        [MaxLength(30)]
         public string Value { get; set; }
+        [Required]
+        public Boolean RequiereFotografia { get; set; }
+        [MaxLength(200)]
         public string Descripcion { get; set; }
         public virtual ICollection<FormularioOpcion> FormularioOpciones { get; set; }
     }

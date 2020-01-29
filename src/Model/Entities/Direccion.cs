@@ -9,15 +9,22 @@ namespace Sivido.Model.Entities
     public class Direccion : Default
     {
         [Required]
+        [MaxLength(100)]
         public string Calle { get; set; }
         [Required]
+        [MaxLength(10)]
         public string NumeroExterior { get; set; }
+        [MaxLength(10)]
         public string NumeroInterior { get; set; }
         [Required]
+        [MaxLength(10)]
         public string CP { get; set; }
+        [MaxLength(30)]
         public string Colonia { get; set; }
+        [MaxLength(20)]
         public string Estado { get; set; }
-        public string pais { get; set; }
+        [MaxLength(20)]
+        public string Pais { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
     }
 }

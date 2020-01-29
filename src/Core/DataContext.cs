@@ -18,6 +18,7 @@ namespace Sivido.Core
         public virtual DbSet<TipoVisitaFormulario> TipoVisitaFormulario { get; set; }
         public virtual DbSet<VisitaRespuesta> VisitaRespuesta { get; set; }
         public virtual DbSet<Formulario> Formulario { get; set; }
+        public virtual DbSet<Fotografia> Fotografia { get; set; }
         public virtual DbSet<Opcion> Opcion { get; set; }
         public virtual DbSet<TipoFormulario> TipoFormulario { get; set; }
         public virtual DbSet<TipoVisita> TipoVisita { get; set; }
@@ -30,7 +31,14 @@ namespace Sivido.Core
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_SAMPEKEY"));
+            optionsBuilder.UseSqlServer("Server=192.168.2.1;Database=sivido;User Id=terrask;Password=yPHIwa4men");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FormularioOpcion>().HasKey(c => new { c.IdFormulario, c.IdOpcion });
+            modelBuilder.Entity<TipoVisitaFormulario>().HasKey(c => new { c.IdTipoVisita, c.IdFormulartio });
+            modelBuilder.Entity<VisitaRespuesta>().HasKey(c => new { c.IdVisita, c.IdFormulario });
         }
 
     }
