@@ -1,7 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Sivido.Core;
 using Sivido.Model.Core;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Threading.Tasks;
 
 namespace Sivido.Model.Entities
 {
@@ -26,5 +29,42 @@ namespace Sivido.Model.Entities
         [MaxLength(20)]
         public string Pais { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
+
+        private readonly DataContext context;
+
+        public Direccion(DataContext _context)
+        {
+            context = _context;
+        }
+
+        public async Task<IEnumerable<Direccion>> GetAllDireccions()
+        {
+            return await context.Direccion.ToListAsync();
+        }
+        public async Task<Direccion> FindDireccionById(string value)
+        {
+            return await context.Direccion.FirstOrDefaultAsync(i => i.Id == value);
+        }
+        public async Task<Direccion> AddDireccion(Direccion value)
+        {
+            await context.Direccion.AddAsync(value);
+            context.SaveChanges();
+            return value;
+        }
+
+        public async Task<Direccion> UpdateDireccion(Direccion value)
+        {
+            context.Update(value);
+            context.SaveChanges();
+            return await context.Direccion.FirstOrDefaultAsync(i => i.Id == value.Id);
+        }
+        public async Task<bool> DeleteDireccion(Direccion value)
+        {
+            context.Remove(value);
+            await context.SaveChangesAsync();
+            return true;
+
+        }
+
     }
 }

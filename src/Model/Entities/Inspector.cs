@@ -1,7 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Sivido.Core;
 using Sivido.Model.Core;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Threading.Tasks;
 
 namespace Sivido.Model.Entities
 {
@@ -19,5 +22,42 @@ namespace Sivido.Model.Entities
         public string Telefono { get; set; }
 
         public virtual ICollection<Visita> Visitas { get; set; }
+
+        private readonly DataContext context;
+
+        public Inspector(DataContext _context)
+        {
+            context = _context;
+        }
+
+        public async Task<IEnumerable<Inspector>> GetAllInspectors()
+        {
+            return await context.Inspector.ToListAsync();
+        }
+        public async Task<Inspector> FindInspectorById(string value)
+        {
+            return await context.Inspector.FirstOrDefaultAsync(i => i.Id == value);
+        }
+        public async Task<Inspector> AddInspector(Inspector value)
+        {
+            await context.Inspector.AddAsync(value);
+            context.SaveChanges();
+            return value;
+        }
+
+        public async Task<Inspector> UpdateInspector(Inspector value)
+        {
+            context.Update(value);
+            context.SaveChanges();
+            return await context.Inspector.FirstOrDefaultAsync(i => i.Id == value.Id);
+        }
+        public async Task<bool> DeleteInspector(Inspector value)
+        {
+            context.Remove(value);
+            await context.SaveChangesAsync();
+            return true;
+
+        }
+
     }
 }
