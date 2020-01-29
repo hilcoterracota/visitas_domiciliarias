@@ -7,12 +7,12 @@ using Sivido.Model.Entities;
 namespace Sivido.Model.Catalog
 {
     [Table("CAT_TIPO_VISITA")]
-    public class TipoVisita: Default
+    public class TipoVisita : Default
     {
-        public string Nombre {get; set;}
-        public string Clave {get; set;}
-        public string Descripcion {get; set;}
+        public string Nombre { get; set; }
+        public string Clave { get; set; }
+        public string Descripcion { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
-        public virtual ICollection<TipoVisitaFormulario> TipoVisitaFormulario { get; set; }
+        public virtual ICollection<TipoVisitaFormulario> TipoVisitaFormularios { get; set; }
     }
 }

@@ -6,8 +6,8 @@ using Sivido.Model.Entities;
 
 namespace Sivido.Model.Catalog
 {
-    [Table("BRE_FORMULARIO_TIPO_VISITA_PORTAFOLIO")]
-    public class VisitaRespuesta: DefaultBreak
+    [Table("BRE_VISITA_RESPUESTA")]
+    public class VisitaRespuesta : DefaultBreak
     {
         [Key]
         public string IdVisita { get; set; }
@@ -18,6 +18,6 @@ namespace Sivido.Model.Catalog
 
         public virtual Visita Visita { get; set; }
         public virtual Formulario Formulario { get; set; }
-        
+
     }
 }

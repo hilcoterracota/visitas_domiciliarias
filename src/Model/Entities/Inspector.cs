@@ -7,7 +7,7 @@ using Sivido.Model.Core;
 namespace Sivido.Model.Entities
 {
     [Table("T_INSPECTOR")]
-    public class Inspector: Default
+    public class Inspector : Default
     {
         public string Usuario { get; set; }
         public string Email { get; set; }

@@ -6,7 +6,7 @@ using Sivido.Model.Core;
 namespace Sivido.Model.Catalog
 {
     [Table("CAT_TIPO_FORMULARIO")]
-    public class TipoFormulario: Default
+    public class TipoFormulario : Default
     {
         public string Value { get; set; }
         public string Descripcion { get; set; }

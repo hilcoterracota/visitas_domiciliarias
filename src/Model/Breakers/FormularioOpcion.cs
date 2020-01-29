@@ -1,4 +1,4 @@
-
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Sivido.Model.Catalog;
@@ -11,7 +11,7 @@ namespace Sivido.Model.Beakers
     {
         [Key]
         public string IdFormulario { get; set; }
-        [key]
+        [Key]
         public string IdOpcion { get; set; }
         public virtual Formulario Formulario { get; set; }
         public virtual Opcion Opcion { get; set; }
