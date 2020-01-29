@@ -1,8 +1,7 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Sivido.Model.Catalog;
 using Sivido.Model.Core;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sivido.Model.Beakers
 {

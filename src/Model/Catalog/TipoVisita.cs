@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using Sivido.Model.Core;
 using Sivido.Model.Entities;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sivido.Model.Catalog
 {
