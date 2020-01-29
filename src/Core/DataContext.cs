@@ -36,9 +36,6 @@ namespace Sivido.Core
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FormularioOpcion>().HasKey(c => new { c.IdFormulario, c.IdOpcion });
-            modelBuilder.Entity<TipoVisitaFormulario>().HasKey(c => new { c.IdTipoVisita, c.IdFormulartio });
-            modelBuilder.Entity<VisitaRespuesta>().HasKey(c => new { c.IdVisita, c.IdFormulario });
 
             modelBuilder.Entity<Visita>(entity =>
             {
@@ -72,6 +69,7 @@ namespace Sivido.Core
 
             modelBuilder.Entity<VisitaRespuesta>(entity =>
             {
+                entity.HasKey(c => new { c.IdVisita, c.IdFormulario });
 
                 entity.HasOne(d => d.Visita)
                     .WithMany(p => p.VisitaRespuestas)
@@ -83,9 +81,61 @@ namespace Sivido.Core
                     .HasForeignKey(d => d.IdFormulario)
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
-                
             });
 
+            modelBuilder.Entity<Fotografia>(entity =>
+            {
+
+                entity.HasOne(d => d.Visita)
+                    .WithMany(p => p.Fotografias)
+                    .HasForeignKey(d => d.IdVisita)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+            });
+
+            modelBuilder.Entity<Formulario>(entity =>
+            {
+
+                entity.HasOne(d => d.tipoFormulario)
+                    .WithMany(p => p.Formularios)
+                    .HasForeignKey(d => d.IdTipoFormulario)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+            });
+
+            modelBuilder.Entity<TipoVisitaFormulario>(entity =>
+            {
+            
+                entity.HasKey(c => new { c.IdTipoVisita, c.IdFormulario });
+
+                entity.HasOne(d => d.TipoVisita)
+                    .WithMany(p => p.TipoVisitaFormularios)
+                    .HasForeignKey(d => d.IdTipoVisita)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Formulario)
+                    .WithMany(p => p.TipoVisitaFormularios)
+                    .HasForeignKey(d => d.IdFormulario)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+            });
+
+            modelBuilder.Entity<FormularioOpcion>(entity =>
+            {
+            
+                entity.HasKey(c => new { c.IdFormulario, c.IdOpcion });
+
+                entity.HasOne(d => d.Opcion)
+                    .WithMany(p => p.FormularioOpciones)
+                    .HasForeignKey(d => d.IdOpcion)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Formulario)
+                    .WithMany(p => p.FormularioOpciones)
+                    .HasForeignKey(d => d.IdFormulario)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+            });
         }
 
     }
