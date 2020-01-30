@@ -22,9 +22,9 @@ namespace Sivido.Model.Catalog
         public string Descripcion { get; set; }
         public virtual ICollection<FormularioOpcion> FormularioOpciones { get; set; }
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public Opcion(DataContext _context)
+        public Opcion(SividoDataContext _context)
         {
             context = _context;
         }

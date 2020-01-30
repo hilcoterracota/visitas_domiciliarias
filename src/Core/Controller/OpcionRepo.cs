@@ -8,9 +8,9 @@ namespace Sivido.Core.Controller
 {
     public class OpcionRepo : IOpcion
     {
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public OpcionRepo(DataContext _context)
+        public OpcionRepo(SividoDataContext _context)
         {
             context = _context;
         }

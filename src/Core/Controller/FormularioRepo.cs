@@ -10,9 +10,9 @@ namespace Sivido.Core.Controller
     public class FormularioRepo : IFormulario
     {
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public FormularioRepo(DataContext _context)
+        public FormularioRepo(SividoDataContext _context)
         {
             context = _context;
         }

@@ -6,12 +6,12 @@ using System;
 
 namespace Sivido.Core
 {
-    public class DataContext : DbContext
+    public class SividoDataContext : DbContext
     {
-        public DataContext()
+        public SividoDataContext()
         { }
 
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public SividoDataContext(DbContextOptions<SividoDataContext> options) : base(options)
         { }
 
         public virtual DbSet<FormularioOpcion> FormularioOpcion { get; set; }

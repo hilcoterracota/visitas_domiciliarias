@@ -9,9 +9,9 @@ namespace Sivido.Core.Controller
     public class InspectorRepo : IInspector
     {
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public InspectorRepo(DataContext _context)
+        public InspectorRepo(SividoDataContext _context)
         {
             context = _context;
         }

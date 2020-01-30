@@ -8,9 +8,9 @@ namespace Sivido.Core.Controller
 {
     public class TipoVisitaRepo : ITipoVisita
     {
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public TipoVisitaRepo(DataContext _context)
+        public TipoVisitaRepo(SividoDataContext _context)
         {
             context = _context;
         }

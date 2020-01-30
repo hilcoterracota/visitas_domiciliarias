@@ -8,8 +8,8 @@ namespace Sivido.Core.Controller
 {
     public class VisitaRepo: IVisita
     {
-        private readonly DataContext context;
-        public VisitaRepo(DataContext _context)
+        private readonly SividoDataContext context;
+        public VisitaRepo(SividoDataContext _context)
         {
             context = _context;
         }

@@ -16,9 +16,9 @@ namespace Sivido.Model.Entities
         public string RasonSocial { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public Cliente(DataContext _context)
+        public Cliente(SividoDataContext _context)
         {
             context = _context;
         }

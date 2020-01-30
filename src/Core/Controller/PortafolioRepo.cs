@@ -10,8 +10,8 @@ namespace Sivido.Core.Controller
     public class PortafolioRepo : IPortafolio
     {
         
-        private readonly DataContext context;
-        public PortafolioRepo(DataContext _context)
+        private readonly SividoDataContext context;
+        public PortafolioRepo(SividoDataContext _context)
         {
             context = _context;
         }

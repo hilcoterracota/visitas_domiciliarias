@@ -18,9 +18,9 @@ namespace Sivido.Model.Catalog
         public string Descripcion { get; set; }
         public virtual ICollection<Formulario> Formularios { get; set; }
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public TipoFormulario(DataContext _context)
+        public TipoFormulario(SividoDataContext _context)
         {
             context = _context;
         }

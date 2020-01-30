@@ -21,9 +21,9 @@ namespace Sivido.Model.Catalog
         public string Descripcion { get; set; }
         public virtual Visita Visita { get; set; }
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public Fotografia(DataContext _context)
+        public Fotografia(SividoDataContext _context)
         {
             context = _context;
         }

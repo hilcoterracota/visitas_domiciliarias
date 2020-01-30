@@ -8,8 +8,8 @@ using Sivido.Core;
 
 namespace sivido.Migrations
 {
-    [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(SividoDataContext))]
+    partial class SividoDataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

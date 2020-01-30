@@ -9,7 +9,7 @@ using Sivido.Core;
 
 namespace sivido.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(SividoDataContext))]
     [Migration("20200129212257_InitialCreate")]
     partial class InitialCreate
     {

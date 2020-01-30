@@ -35,8 +35,8 @@ namespace Sivido.Model.Entities
         public virtual ICollection<Fotografia> Fotografias { get; set; }
 
 
-        private readonly DataContext context;
-        public Visita(DataContext _context)
+        private readonly SividoDataContext context;
+        public Visita(SividoDataContext _context)
         {
             context = _context;
         }

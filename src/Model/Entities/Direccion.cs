@@ -30,9 +30,9 @@ namespace Sivido.Model.Entities
         public string Pais { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public Direccion(DataContext _context)
+        public Direccion(SividoDataContext _context)
         {
             context = _context;
         }

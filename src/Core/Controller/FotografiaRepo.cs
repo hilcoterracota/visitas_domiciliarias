@@ -8,9 +8,9 @@ namespace Sivido.Core.Controller
 {
     public class FotografiaRepo : IFotografia
     {
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public FotografiaRepo(DataContext _context)
+        public FotografiaRepo(SividoDataContext _context)
         {
             context = _context;
         }

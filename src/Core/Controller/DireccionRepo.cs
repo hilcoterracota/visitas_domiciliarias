@@ -9,9 +9,9 @@ namespace Sivido.Core.Controller
     public class DireccionRepo : IDireccion
     {
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public DireccionRepo(DataContext _context)
+        public DireccionRepo(SividoDataContext _context)
         {
             context = _context;
         }

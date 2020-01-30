@@ -23,9 +23,9 @@ namespace Sivido.Model.Entities
 
         public virtual ICollection<Visita> Visitas { get; set; }
 
-        private readonly DataContext context;
+        private readonly SividoDataContext context;
 
-        public Inspector(DataContext _context)
+        public Inspector(SividoDataContext _context)
         {
             context = _context;
         }
