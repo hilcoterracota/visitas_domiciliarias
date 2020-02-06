@@ -151,7 +151,10 @@ namespace sivido.Migrations
                     IdCliente = table.Column<string>(nullable: false),
                     IdDreccion = table.Column<string>(nullable: false),
                     IdIsnpector = table.Column<string>(nullable: false),
-                    FechaVisita = table.Column<DateTime>(nullable: false)
+                    FechaVisita = table.Column<DateTime>(nullable: false),
+                    PrimeraVisita = table.Column<bool>(nullable: false),
+                    Destinatario = table.Column<string>(maxLength: 100, nullable: true),
+                    Puesto = table.Column<string>(maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -221,7 +224,8 @@ namespace sivido.Migrations
                     IdTipoVisita = table.Column<string>(nullable: false),
                     IdFormulario = table.Column<string>(nullable: false),
                     RegistrationDate = table.Column<DateTime>(nullable: false),
-                    Active = table.Column<bool>(nullable: false)
+                    Active = table.Column<bool>(nullable: false),
+                    Order = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

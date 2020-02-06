@@ -22,40 +22,6 @@ namespace Sivido.Model.Catalog
         public virtual ICollection<TipoVisitaFormulario> TipoVisitaFormularios { get; set; }
         public virtual ICollection<FormularioOpcion> FormularioOpciones { get; set; }
 
-        private readonly SividoDataContext context;
-
-        public Formulario(SividoDataContext _context)
-        {
-            context = _context;
-        }
-
-        public async Task<IEnumerable<Formulario>> GetAllFormularios()
-        {
-            return await context.Formulario.ToListAsync();
-        }
-        public async Task<Formulario> FindFormularioById(string value)
-        {
-            return await context.Formulario.FirstOrDefaultAsync(i => i.Id == value);
-        }
-        public async Task<Formulario> AddFormulario(Formulario value)
-        {
-            await context.Formulario.AddAsync(value);
-            context.SaveChanges();
-            return value;
-        }
-
-        public async Task<Formulario> UpdateFormulario(Formulario value)
-        {
-            context.Update(value);
-            context.SaveChanges();
-            return await context.Formulario.FirstOrDefaultAsync(i => i.Id == value.Id);
-        }
-        public async Task<bool> DeleteFormulario(Formulario value)
-        {
-            context.Remove(value);
-            await context.SaveChangesAsync();
-            return true;
-
-        }
+        
     }
 }

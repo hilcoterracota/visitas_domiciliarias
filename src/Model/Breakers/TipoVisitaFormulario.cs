@@ -12,6 +12,7 @@ namespace Sivido.Model.Beakers
         public string IdTipoVisita { get; set; }
         [Key]
         public string IdFormulario { get; set; }
+        public int Order { get; set; }
         public virtual TipoVisita TipoVisita { get; set; }
         public virtual Formulario Formulario { get; set; }
     }

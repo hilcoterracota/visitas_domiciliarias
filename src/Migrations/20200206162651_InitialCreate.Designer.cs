@@ -10,7 +10,7 @@ using Sivido.Core;
 namespace sivido.Migrations
 {
     [DbContext(typeof(SividoDataContext))]
-    [Migration("20200129212257_InitialCreate")]
+    [Migration("20200206162651_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,9 @@ namespace sivido.Migrations
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
@@ -370,6 +373,10 @@ namespace sivido.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Destinatario")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
                     b.Property<DateTime>("FechaVisita")
                         .HasColumnType("datetime2");
 
@@ -392,6 +399,13 @@ namespace sivido.Migrations
                     b.Property<string>("IdTipoVisita")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("PrimeraVisita")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Puesto")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");

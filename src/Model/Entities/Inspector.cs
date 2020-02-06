@@ -23,41 +23,5 @@ namespace Sivido.Model.Entities
 
         public virtual ICollection<Visita> Visitas { get; set; }
 
-        private readonly SividoDataContext context;
-
-        public Inspector(SividoDataContext _context)
-        {
-            context = _context;
-        }
-
-        public async Task<IEnumerable<Inspector>> GetAllInspectors()
-        {
-            return await context.Inspector.ToListAsync();
-        }
-        public async Task<Inspector> FindInspectorById(string value)
-        {
-            return await context.Inspector.FirstOrDefaultAsync(i => i.Id == value);
-        }
-        public async Task<Inspector> AddInspector(Inspector value)
-        {
-            await context.Inspector.AddAsync(value);
-            context.SaveChanges();
-            return value;
-        }
-
-        public async Task<Inspector> UpdateInspector(Inspector value)
-        {
-            context.Update(value);
-            context.SaveChanges();
-            return await context.Inspector.FirstOrDefaultAsync(i => i.Id == value.Id);
-        }
-        public async Task<bool> DeleteInspector(Inspector value)
-        {
-            context.Remove(value);
-            await context.SaveChangesAsync();
-            return true;
-
-        }
-
     }
 }
