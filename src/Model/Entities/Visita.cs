@@ -27,6 +27,8 @@ namespace Sivido.Model.Entities
         [Required]
         public DateTime FechaVisita { get; set; }
         [Required]
+        public string IdStatus { get; set; }
+        [Required]
         public Boolean PrimeraVisita { get; set; }
         [MaxLength(100)]
         public string Destinatario { get; set; }
@@ -37,8 +39,8 @@ namespace Sivido.Model.Entities
         public virtual Cliente Cliente { get; set; }
         public virtual Direccion Direccion { get; set; }
         public virtual Inspector Inspector { get; set; }
+        public virtual Status Status { get; set; }
         public virtual ICollection<VisitaRespuesta> VisitaRespuestas { get; set; }
         public virtual ICollection<Fotografia> Fotografias { get; set; }
-        
     }
 }
