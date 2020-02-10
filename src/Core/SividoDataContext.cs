@@ -27,6 +27,7 @@ namespace Sivido.Core
         public virtual DbSet<Inspector> Inspector { get; set; }
         public virtual DbSet<Portafolio> Portafolio { get; set; }
         public virtual DbSet<Visita> Visita { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -64,7 +65,12 @@ namespace Sivido.Core
                     .WithMany(p => p.Visitas)
                     .HasForeignKey(d => d.IdIsnpector)
                     .OnDelete(DeleteBehavior.ClientSetNull);
-                
+
+                entity.HasOne(d => d.Status)
+                    .WithMany(p => p.Visitas)
+                    .HasForeignKey(d => d.IdStatus)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
             });
 
             modelBuilder.Entity<VisitaRespuesta>(entity =>
@@ -105,7 +111,7 @@ namespace Sivido.Core
 
             modelBuilder.Entity<TipoVisitaFormulario>(entity =>
             {
-            
+
                 entity.HasKey(c => new { c.IdTipoVisita, c.IdFormulario });
 
                 entity.HasOne(d => d.TipoVisita)
@@ -122,7 +128,7 @@ namespace Sivido.Core
 
             modelBuilder.Entity<FormularioOpcion>(entity =>
             {
-            
+
                 entity.HasKey(c => new { c.IdFormulario, c.IdOpcion });
 
                 entity.HasOne(d => d.Opcion)
