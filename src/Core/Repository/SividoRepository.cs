@@ -13,6 +13,14 @@ namespace Sivido.Core.Repository
         Task<Visita> UpdateVisita(Visita value);
         Task<bool> DeleteVisita(Visita value);
     }
+    public interface IStatus
+    {
+        Task<IEnumerable<Status>> GetAllStatus();
+        Task<Status> FindStatusById(string value);
+        Task<Status> AddStatus(Status value);
+        Task<Status> UpdateStatus(Status value);
+        Task<bool> DeleteStatus(Status value);
+    }
     public interface IPortafolio
     {
 
