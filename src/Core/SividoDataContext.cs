@@ -33,7 +33,7 @@ namespace Sivido.Core
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=192.168.2.1;Database=sivido;User Id=terrask;Password=yPHIwa4men");
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_SIVIDO"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
