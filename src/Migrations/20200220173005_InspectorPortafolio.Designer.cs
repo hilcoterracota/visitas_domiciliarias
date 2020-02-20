@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sivido.Core;
 
 namespace sivido.Migrations
 {
     [DbContext(typeof(SividoDataContext))]
-    partial class SividoDataContextModelSnapshot : ModelSnapshot
+    [Migration("20200220173005_InspectorPortafolio")]
+    partial class InspectorPortafolio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

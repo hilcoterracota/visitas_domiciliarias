@@ -28,11 +28,12 @@ namespace Sivido.Core
         public virtual DbSet<Portafolio> Portafolio { get; set; }
         public virtual DbSet<Visita> Visita { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<InspectorPortafolio> InspectorPortafolio { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("MSQL_SIVIDO"));
+            optionsBuilder.UseSqlServer("Server=192.168.2.1;Database=sivido;User Id=terrask;Password=yPHIwa4men");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -139,6 +140,22 @@ namespace Sivido.Core
                 entity.HasOne(d => d.Formulario)
                     .WithMany(p => p.FormularioOpciones)
                     .HasForeignKey(d => d.IdFormulario)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+            });
+
+            modelBuilder.Entity<InspectorPortafolio>(entity =>
+            {
+                entity.HasKey(c => new { c.IdInspector, c.Idportafolio });
+
+                entity.HasOne(d => d.Inspector)
+                    .WithMany(p => p.InspectorPortafolios)
+                    .HasForeignKey(d => d.IdInspector)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
+
+                entity.HasOne(d => d.Portafolio)
+                    .WithMany(p => p.InspectorPortafolios)
+                    .HasForeignKey(d => d.Idportafolio)
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
             });

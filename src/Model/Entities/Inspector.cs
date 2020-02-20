@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Sivido.Core;
+using Sivido.Model.Beakers;
 using Sivido.Model.Core;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,7 @@ namespace Sivido.Model.Entities
         public string Telefono { get; set; }
 
         public virtual ICollection<Visita> Visitas { get; set; }
+        public virtual ICollection<InspectorPortafolio> InspectorPortafolios { get; set; }
 
     }
 }

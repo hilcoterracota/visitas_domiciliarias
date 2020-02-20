@@ -34,6 +34,7 @@ namespace Sivido.Model.Entities
         public string Destinatario { get; set; }
         [MaxLength(100)]
         public string Puesto { get; set; }
+        public string Prueba { get; set; }
         public virtual TipoVisita TipoVisita { get; set; }
         public virtual Portafolio Portafolio { get; set; }
         public virtual Cliente Cliente { get; set; }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Sivido.Core;
+using Sivido.Model.Beakers;
 using Sivido.Model.Core;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,5 +16,6 @@ namespace Sivido.Model.Entities
         [MaxLength(100)]
         public string RasonSocial { get; set; }
         public virtual ICollection<Visita> Visitas { get; set; }
+        public virtual ICollection<InspectorPortafolio> InspectorPortafolios { get; set; }
     }
 }

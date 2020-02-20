@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Sivido</PackageId>
     <Description>Libreria para sistema de visitas domiciliarias</Description>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
     <Authors>Nestor Martinez Hernandez</Authors>
     <Company>Techmedel</Company>
     <PackageProjectUrl>https://github.com/techmedel/sivido</PackageProjectUrl>
